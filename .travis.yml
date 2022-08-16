@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t somsubha/frontend -f Docker.dev
+  - docker build -t somsubha/frontend -f Docker.dev .
 
 script:
   - docker run somsubha/frontend npm run test -- --coverage
