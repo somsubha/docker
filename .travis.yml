@@ -7,3 +7,15 @@ before_install:
 
 script:
   - docker run somsubha/frontend npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: ap-south-1
+  app: "docker-react"
+  env: "Dockerreact-env"
+  bucket_name: "elasticbeanstalk-ap-south-1-348661920122"
+  bucket_path: "docker-react"
+  on:
+    branch: master
+  access_key_id: $ACCESS_KEY
+  secret_access_key: "$SECRET_KEY"
